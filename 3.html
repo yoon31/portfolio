@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+
+<body>
+
+<h1> Venturesquare Top News</h1>
+
+<ul>
+{% for i in soup3.find_all('h2')%}
+{% for x in i.find_all('a')%}
+<li><a href={{x['href']}}>{{x.text}}</a></li>
+
+{% endfor %}
+{% endfor %}
+</ul>
+
+{% for i in soup3.find_all('img', 'wp-post-image') %}
+<img src={{i['src']}}>
+{% endfor %}
+
+<h1> Platum Top News</h1>
+
+<ul>
+{% for i in soup2.find_all('h2')%}
+{% for y in i.find_all('a')%}
+<li><a href={{y['href']}}>{{y.text}}</a></li>
+
+{% endfor %}
+{% endfor %}
+</ul>
+
+<h1> Besuccess Top News</h1>
+
+<ul>
+{% for i in soup1.find_all('strong')%}
+{% for z in i.find_all('a')%}
+<li><a href={{z['href']}}>{{z.text}}</a></li>
+
+{% endfor %}
+{% endfor %}
+</ul>
+
+
+</body>
+</html>
