@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<title>hello world</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+
+<div class="page">
+	<h1> 벅스 실시간 차트 Top 50 (추천 music)</h1>
+<div class="page">
+	{% block body %}
+    
+
+	{% for i in music%}
+    
+    <ul>
+     
+    {% for title in i.find_all('a','tracktitle')%}
+    <li>{{title.text}} </li>
+    {% endfor %}   
+
+    {% for artist in i.find_all('a','artistname')%} 
+    {{artist.text}} 
+    {% endfor %} / 
+
+	{% for album in i.find_all('a','albumtitle')%} 
+    {{album.text}} 
+    {% endfor %} 
+
+    </ul>
+ 	{% endfor %} 
+
+    <h1> 벅스 실시간 앨범 Top 50 </h1>
+
+{% for i in soup.find_all('div','thumbnail')%}
+{% for y in i.find_all('img')%}
+<img src={{y['src']}}>
+{% endfor %}
+{% endfor %}
+
+
+	{% endblock %}
+</div>

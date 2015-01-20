@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+
+<body>
+
+<h1> 교보문고 베스트셀러 Top20</h1>
+
+<ol>
+
+{% for x in soup5.find_all('div','title')%}
+{% for t in x.find_all('strong')%}
+<li>{{t.text}}</li>
+{% endfor %}
+{% endfor %}
+
+</br>
+
+{% for i in soup5.find_all('div','cover')%}
+{% for y in i.find_all('img')%}
+<img src={{y['src']}}>
+{% endfor %}
+{% endfor %}
+
+</ol>
+
+<h1> 반디앤루니스 베스트셀러 Top20</h1>
+
+<ol>
+
+{% for j in soup6.find_all('li','v_title')%}
+{% for b in j.find_all('a')%}
+<li>{{b.text}}</a></li>
+{% endfor %}
+{% endfor %}
+
+</br>
+
+{% for c in soup6.find_all('img', 'd_imgLine') %}
+<img src={{c['src']}}>
+{% endfor %}
+
+</ol>
+
+
+<h1> 알라딘 베스트셀러 Top7</h1>
+
+<ol>
+
+{% for k in soup7.find_all('a','bo3')%}
+{% for d in k.find_all('b')%}
+<li>{{d.text}}</li>
+{% endfor %}
+{% endfor %}
+
+</br>
+
+</body>
+</html>
